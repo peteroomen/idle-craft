@@ -24,6 +24,8 @@ type GameStore = {
   replace: (s: GameState) => void;
   dismissAway: () => void;
   save: () => void;
+  /** Dev tool: play `ms` of game time instantly, then show what happened. */
+  warp: (ms: number) => void;
 };
 
 const HOUR = 3_600_000;
@@ -121,6 +123,18 @@ export const useGame = create<GameStore>((set, get) => ({
   },
 
   dismissAway: () => set({ away: null }),
+
+  warp(ms) {
+    const { game } = get();
+    if (!game) return;
+    const s = structuredClone(game);
+    const summary = emptySummary();
+    advance(s, ms, summarise(summary));
+    summary.ms = ms;
+    s.now = Date.now();
+    set({ game: s, away: { summary, elapsed: ms, simulated: ms } });
+    writeSave(s);
+  },
   save() {
     const { game } = get();
     if (game) writeSave(game);

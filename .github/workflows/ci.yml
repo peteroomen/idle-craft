@@ -23,4 +23,6 @@ jobs:
       - run: npm test
       - name: Sprites are up to date
         run: npm run sprites && git diff --exit-code -- public/icons src/content/sprite-manifest.json
+      - name: Balance report is up to date
+        run: npm run balance && git diff --exit-code -- balance/report.md
       - run: npm run build
