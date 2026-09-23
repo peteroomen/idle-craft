@@ -268,6 +268,19 @@ for (let t = 1; t <= 8; t++) {
 }
 put('icon:smithing', shade(ANVIL, { '#': { ramp: METAL[2] } }, FIXED), 'generated');
 
+// Arrowtips: three heads pointing up-right, in the metal. Shafts: a bundle of bare sticks.
+const TIPS = blank();
+[[8, 22], [15, 15], [22, 8]].forEach(([x, y]) => {
+  fill(TIPS, polygon([[x + 6, y - 6], [x + 2, y + 3], [x, y + 1], [x - 1, y + 3], [x - 3, y + 1], [x - 1, y], [x - 3, y - 2], [x - 1, y - 3], [x, y - 1], [x + 1, y - 4]]), '#');
+  set(TIPS, [[x - 2, y + 2], [x - 3, y + 3]], 'b');
+});
+for (let t = 1; t <= 8; t++) metalItem('arrowtips', t, TIPS);
+{
+  const g = blank();
+  [[3, 24], [6, 27], [9, 30]].forEach(([x0, y0]) => { for (let i = 0; i < 21; i++) { const x = x0 + i, y = y0 - 3 - i; if (inB(x, y)) g[y][x] = 'p'; if (inB(x + 1, y)) g[y][x + 1] = 'P'; } });
+  put('shafts', shade(g, {}, { p: '#d9a066', P: '#8f563b' }), 'generated');
+}
+
 // Ores: a stone lump with nuggets in the ore's colours.
 const ORE_FLECK = {
   copper: ['#fa9e5d', '#df7126', '#8a3b12'], tin: ['#ffffff', '#cbdbfc', '#9badb7'], iron: ['#e8a878', '#b35f36', '#803426'], coal: ['#6a6a70', '#222034', '#0b0a12'],

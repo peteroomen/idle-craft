@@ -6,5 +6,6 @@ export default function Icon({ imgPath, className, size = 'md', alt = '' }: { im
     xl: 'size-32',
   };
 
+  // eslint-disable-next-line @next/next/no-img-element -- pixel art must not be resampled by next/image
   return <img style={{ imageRendering: 'pixelated' }} src={imgPath} alt={alt} className={`${className ?? ''} ${sizeClassMap[size]}`} />;
 }

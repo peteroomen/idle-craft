@@ -435,6 +435,42 @@
   "by": "generated",
   "src": "/icons/icon-smithing.png"
  },
+ "arrowtips:1": {
+  "by": "generated",
+  "src": "/icons/arrowtips-1.png"
+ },
+ "arrowtips:2": {
+  "by": "generated",
+  "src": "/icons/arrowtips-2.png"
+ },
+ "arrowtips:3": {
+  "by": "generated",
+  "src": "/icons/arrowtips-3.png"
+ },
+ "arrowtips:4": {
+  "by": "generated",
+  "src": "/icons/arrowtips-4.png"
+ },
+ "arrowtips:5": {
+  "by": "generated",
+  "src": "/icons/arrowtips-5.png"
+ },
+ "arrowtips:6": {
+  "by": "generated",
+  "src": "/icons/arrowtips-6.png"
+ },
+ "arrowtips:7": {
+  "by": "generated",
+  "src": "/icons/arrowtips-7.png"
+ },
+ "arrowtips:8": {
+  "by": "generated",
+  "src": "/icons/arrowtips-8.png"
+ },
+ "shafts": {
+  "by": "generated",
+  "src": "/icons/shafts.png"
+ },
  "ore:1": {
   "by": "generated",
   "src": "/icons/ore-1.png"

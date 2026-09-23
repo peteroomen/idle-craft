@@ -4,8 +4,9 @@ import '@ant-design/v5-patch-for-react-19';
 import '@fontsource/silkscreen/700.css';
 import React, { useEffect, useState } from 'react';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { ConfigProvider, theme, ThemeConfig } from 'antd';
+import { App, ConfigProvider, theme, ThemeConfig } from 'antd';
 import MainLayout from '@/components/main-layout';
+import GameClock from '@/components/game-clock';
 import { localStorageKeys } from '@/lib/utils';
 
 // Peter's next-idle theme: purple primary, deep purple header, instant progress bars.
@@ -40,9 +41,12 @@ export default function Providers({ children }: React.PropsWithChildren) {
   return (
     <AntdRegistry>
       <ConfigProvider theme={darkMode ? darkTheme : lightTheme}>
-        <MainLayout darkMode={darkMode} onToggleDarkMode={toggleDarkMode}>
-          {children}
-        </MainLayout>
+        <App>
+          <GameClock />
+          <MainLayout darkMode={darkMode} onToggleDarkMode={toggleDarkMode}>
+            {children}
+          </MainLayout>
+        </App>
       </ConfigProvider>
     </AntdRegistry>
   );

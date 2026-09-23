@@ -1,80 +1,79 @@
-import { PropsWithChildren, ReactNode, useEffect, useState } from "react";
-import Icon from "./icon";
-import Title from "antd/es/typography/Title";
-import { Button, message, Progress, theme } from "antd";
+'use client';
+
+import { App, Button, Progress, Tag, theme, Tooltip } from 'antd';
+import { useShallow } from 'zustand/react/shallow';
+import { ITEMS } from '@/content/items';
 import type { Activity as IActivity } from '@/content/types';
+import { actionDuration, startActivity, stop } from '@/engine';
+import { secs } from '@/lib/format';
+import { useGame } from '@/store/game';
+import { useSkill } from '@/store/hooks';
+import Icon from './icon';
 
-export default function Activity({activity, isActive, handleToggle}: {activity: IActivity, isActive: boolean, handleToggle: (state: boolean) => void}) {
+// Peter's activity card, now driven by the engine: progress lives in the game state, so it
+// survives page changes, refreshes and closing the tab.
+export default function Activity({ activity }: { activity: IActivity }) {
+  const { token: { colorBgContainer, borderRadiusLG, colorError } } = theme.useToken();
+  const { message } = App.useApp();
+  const run = useGame((s) => s.run);
+  const { level } = useSkill(activity.skill);
+  const view = useGame(useShallow((s) => {
+    const g = s.game, a = g?.action;
+    const active = a?.type === 'activity' && a.id === activity.id;
+    const duration = g ? actionDuration(g, activity) : activity.duration;
+    return {
+      active,
+      duration,
+      pct: active ? Math.round((a.progress / duration) * 1000) / 10 : 0,
+      have: (activity.inputs ?? []).map((i) => g?.inventory[i.item] ?? 0).join(','),
+    };
+  }));
+  const have = view.have ? view.have.split(',').map(Number) : [];
+  const locked = level < activity.level;
 
-    const { token: { colorBgContainer, borderRadiusLG } } = theme.useToken();
+  const start = () => {
+    const err = run(startActivity, activity.id);
+    if (err) message.warning(err);
+  };
 
-    const [percentage, setPercentage] = useState(0);
-    const [intervalId, setIntervalId] = useState<NodeJS.Timeout>();
-
-    const [messageApi, contextHolder] = message.useMessage();
-
-    //TEMP
-    const [itemCount, setItemCount] = useState(0);
-
-    useEffect(() => {
-        if (isActive) {
-            console.log("Active toggled to true");
-            setPercentage(0);
-            if (intervalId) {
-                clearInterval(intervalId);
-            }
-            const interval = setInterval(() => {
-                console.log("Interval triggered");
-                setPercentage(percentage => percentage+1);
-            }, activity.duration / 100);
-            setIntervalId(interval);
-        } else {
-            if (intervalId) {
-                clearInterval(intervalId);
-            }
-            setPercentage(0);
-            setIntervalId(undefined);
-            setItemCount(itemCount => itemCount++)
-        }
-    }, [isActive]);
-
-    useEffect(() => {
-        // If at 100%, then reset the percentage, and resolve the activity
-        if (percentage >= 100) {
-            console.log("Reached/exceeded 100%, incrementing item count");
-            setItemCount(count => count+1);
-            setPercentage(0);
-            messageApi.open({
-                icon: <Icon imgPath={activity.icon} />, 
-                content: <span className="flex flex-row gap-2"><span className="font-bold">+1</span>({itemCount+1})</span>
-            });
-        }
-    }, [percentage]);
-  
-    return (<>
-        {contextHolder}
-        <div className='flex flex-col w-52' style={{ backgroundColor: colorBgContainer, borderRadius: borderRadiusLG }}>
-        {isActive && <Progress 
-            type='line'
-            percent={percentage} 
-            showInfo={false} 
-            size={{height: borderRadiusLG}} 
-            style={{margin: 0, height: `${borderRadiusLG}px`, lineHeight: `${borderRadiusLG}px`, transition: "none"}} 
-        />}
-        <div className={`flex flex-col items-center gap-2 p-4 ${isActive ? "pt-2" : ""}`}>
-            <div className="flex flex-col items-center">
-                <div className="text-xs">{activity.action}</div>
-                <div className="font-bold">{activity.name}</div>
-                <div className="text-xs">{activity.xp} XP / {activity.duration/1000} sec</div>
-            </div>
-            <Icon imgPath={activity.icon} size="lg" />
-            {isActive && <>
-                <Button type="default" onClick={() => handleToggle(false)}>Cancel</Button>
-            </>}
-            {!isActive && <>
-                <Button type="primary" onClick={() => handleToggle(true)}>Start</Button>
-            </>}
+  return (
+    <div className="flex flex-col relative overflow-hidden" style={{ backgroundColor: colorBgContainer, borderRadius: borderRadiusLG, opacity: locked ? 0.7 : 1 }}>
+      {view.active && (
+        <Progress
+          type="line"
+          percent={view.pct}
+          showInfo={false}
+          size={{ height: borderRadiusLG }}
+          style={{ margin: 0, height: `${borderRadiusLG}px`, lineHeight: `${borderRadiusLG}px`, transition: 'none', position: 'absolute', top: 0, left: 0, right: 0 }}
+        />
+      )}
+      <div className="flex flex-col items-center gap-2 p-4">
+        <div className="flex flex-col items-center text-center">
+          <div className="text-xs">{activity.action}</div>
+          <div className="font-bold">{activity.name}</div>
+          <div className="text-xs">{locked ? <span style={{ color: colorError }}>Level {activity.level}</span> : <>{activity.xp} XP / {secs(view.duration)}</>}</div>
         </div>
-        </div>
-    </>);
+        <Icon imgPath={activity.icon} size="lg" alt={activity.name} />
+        {activity.inputs && (
+          <div className="flex flex-row flex-wrap justify-center gap-2">
+            {activity.inputs.map((i, n) => (
+              <Tooltip key={i.item} title={ITEMS[i.item].name}>
+                <span className="flex flex-row items-center text-xs" style={{ color: have[n] < i.qty ? colorError : undefined }}>
+                  <Icon imgPath={ITEMS[i.item].icon} alt={ITEMS[i.item].name} />
+                  {have[n]}/{i.qty}
+                </span>
+              </Tooltip>
+            ))}
+          </div>
+        )}
+        {view.active ? (
+          <Button type="default" onClick={() => run(stop)}>Cancel</Button>
+        ) : locked ? (
+          <Tag>Locked</Tag>
+        ) : (
+          <Button type="primary" onClick={start}>Start</Button>
+        )}
+      </div>
+    </div>
+  );
 }
