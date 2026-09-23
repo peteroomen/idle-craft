@@ -5,6 +5,8 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Ironbark',
   description: 'An idle crafting RPG. Pick a tree, close the tab, come back to a bank full of logs.',
+  manifest: '/manifest.webmanifest',
+  appleWebApp: { capable: true, title: 'Ironbark', statusBarStyle: 'black-translucent' },
 };
 
 export const viewport: Viewport = {

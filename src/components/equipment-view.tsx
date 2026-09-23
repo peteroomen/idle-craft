@@ -46,7 +46,7 @@ export default function EquipmentView() {
     <div className="flex flex-col gap-4">
       <Typography.Title level={3} style={{ margin: 0 }}>Equipment</Typography.Title>
       <div className="flex flex-col md:flex-row gap-4 items-start">
-        <div className="grid grid-cols-3 gap-2 p-4" style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
+        <div className="grid grid-cols-3 gap-2 p-4 self-center md:self-start" style={{ background: colorBgContainer, borderRadius: borderRadiusLG }}>
           {DOLL.map((slot, i) => {
             if (!slot) return <div key={i} className="size-20" />;
             const id = equipment[slot];

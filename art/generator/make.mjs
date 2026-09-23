@@ -522,6 +522,23 @@ if (existsSync(OVERRIDES)) {
   }
 }
 
+// ---------- App icons: Peter's Woodcutting icon on the header purple ----------
+const APP = fileURLToPath(new URL('../../public/app/', import.meta.url));
+mkdirSync(APP, { recursive: true });
+function appIcon(size, scale, bg = '#130029') {
+  const src = sprites['skill:woodcutting'].px, pad = Math.floor((size - N * scale) / 2);
+  const px = Array.from({ length: size }, (_, y) => Array.from({ length: size }, (_, x) => {
+    const sx = Math.floor((x - pad) / scale), sy = Math.floor((y - pad) / scale);
+    return (sx >= 0 && sy >= 0 && sx < N && sy < N && src[sy][sx]) || bg;
+  }));
+  return pngBuffer({ width: size, height: size, px });
+}
+writeFileSync(APP + 'icon-192.png', appIcon(192, 5));
+writeFileSync(APP + 'icon-512.png', appIcon(512, 13));
+writeFileSync(APP + 'icon-maskable-512.png', appIcon(512, 10));
+writeFileSync(fileURLToPath(new URL('../../src/app/icon.png', import.meta.url)), appIcon(64, 2));
+writeFileSync(fileURLToPath(new URL('../../src/app/apple-icon.png', import.meta.url)), appIcon(180, 5));
+
 // ---------- outputs ----------
 export const fileFor = (id) => id.replace(/:/g, '-') + '.png';
 const manifest = {};

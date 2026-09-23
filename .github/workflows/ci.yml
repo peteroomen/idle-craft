@@ -22,7 +22,9 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - name: Sprites are up to date
-        run: npm run sprites && git diff --exit-code -- public/icons src/content/sprite-manifest.json
+        run: npm run sprites && git diff --exit-code -- public/icons public/app src/app/icon.png src/app/apple-icon.png src/content/sprite-manifest.json
       - name: Balance report is up to date
         run: npm run balance && git diff --exit-code -- balance/report.md
       - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e

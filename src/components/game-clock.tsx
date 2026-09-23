@@ -19,6 +19,9 @@ export default function GameClock() {
   useEffect(() => {
     const store = useGame.getState();
     store.load(Date.now());
+    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => { /* offline launch is a nice-to-have */ });
+    }
     const tick = setInterval(() => useGame.getState().tick(Date.now()), TICK_MS);
     const save = setInterval(() => useGame.getState().save(), AUTOSAVE_MS);
     const onVisibility = () => useGame.getState().setHidden(document.hidden, Date.now());

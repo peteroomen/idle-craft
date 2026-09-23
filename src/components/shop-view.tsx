@@ -71,7 +71,9 @@ function ItemListing({ listing }: { listing: Extract<Listing, { kind: 'item' }> 
         <Price gold={listing.price * n} />
         <div className="flex-grow" />
         {listing.bulk && <InputNumber min={1} max={100000} value={qty} onChange={setQty} style={{ width: 90 }} aria-label={`Quantity of ${it.name}`} />}
-        <Button type="primary" disabled={gold < listing.price * n} onClick={doBuy}>Buy</Button>
+        {it.tool && owned > 0
+          ? <Button disabled>Owned</Button>
+          : <Button type="primary" disabled={gold < listing.price * n} onClick={doBuy}>Buy</Button>}
       </div>
     </Card>
   );

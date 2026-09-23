@@ -19,9 +19,18 @@ Read `README.md` for the overview and `art/README.md` for the sprite pipeline.
 - **Balance changes show in PRs.** After changing content or formulas, run `npm run balance` and commit
   `balance/report.md`.
 
+## Current state
+
+- M0–M6 shipped on branch `claude/melvor-idle-game-090oxo`: engine, 10 skills, shop, equipment,
+  combat (8 zones × 3 monsters), balance report + simulator, PWA install, save export/import.
+- Generated stand-ins still used for most skill icons and all monster sprites (see README).
+- Not deployed yet.
+
 ## Commands
 
 - `npm run check` before every commit (lint + typecheck + unit tests).
+- `npm run test:e2e` runs Playwright against `out/`, so build first. In the cloud container set
+  `PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers` and never run `playwright install`.
 - `npm run build` must pass (static export; no server features: no API routes, no middleware,
   no `next/font/google`).
 - Node 22 lives at `/opt/node22/bin` in the Claude Code cloud container.
