@@ -1,0 +1,14 @@
+node_modules/
+dist/
+tmp/
+.next/
+.nx/cache
+.nx/workspace-data
+coverage/
+
+.env
+.env.*
+
+.DS_Store
+*.tsbuildinfo
+npm-debug.log*
