@@ -1,0 +1,774 @@
+{
+ "skill:woodcutting": {
+  "by": "peter",
+  "src": "/icons/skill-woodcutting.png"
+ },
+ "skill:mining": {
+  "by": "peter",
+  "src": "/icons/skill-mining.png"
+ },
+ "skill:firemaking": {
+  "by": "peter",
+  "src": "/icons/skill-firemaking.png"
+ },
+ "skill:fletching": {
+  "by": "peter",
+  "src": "/icons/skill-fletching.png"
+ },
+ "log:1": {
+  "by": "peter",
+  "src": "/icons/log-1.png"
+ },
+ "log:2": {
+  "by": "peter",
+  "src": "/icons/log-2.png"
+ },
+ "log:3": {
+  "by": "peter",
+  "src": "/icons/log-3.png"
+ },
+ "log:4": {
+  "by": "peter",
+  "src": "/icons/log-4.png"
+ },
+ "log:5": {
+  "by": "peter",
+  "src": "/icons/log-5.png"
+ },
+ "log:6": {
+  "by": "peter",
+  "src": "/icons/log-6.png"
+ },
+ "log:7": {
+  "by": "peter",
+  "src": "/icons/log-7.png"
+ },
+ "log:8": {
+  "by": "peter",
+  "src": "/icons/log-8.png"
+ },
+ "sword:1": {
+  "by": "peter",
+  "src": "/icons/sword-1.png"
+ },
+ "sword:2": {
+  "by": "peter",
+  "src": "/icons/sword-2.png"
+ },
+ "sword:3": {
+  "by": "peter",
+  "src": "/icons/sword-3.png"
+ },
+ "sword:5": {
+  "by": "peter",
+  "src": "/icons/sword-5.png"
+ },
+ "sword:6": {
+  "by": "peter",
+  "src": "/icons/sword-6.png"
+ },
+ "sword:8": {
+  "by": "peter",
+  "src": "/icons/sword-8.png"
+ },
+ "sword:4": {
+  "by": "derived",
+  "src": "/icons/sword-4.png"
+ },
+ "sword:7": {
+  "by": "derived",
+  "src": "/icons/sword-7.png"
+ },
+ "dagger:1": {
+  "by": "derived",
+  "src": "/icons/dagger-1.png"
+ },
+ "dagger:2": {
+  "by": "derived",
+  "src": "/icons/dagger-2.png"
+ },
+ "dagger:3": {
+  "by": "derived",
+  "src": "/icons/dagger-3.png"
+ },
+ "dagger:4": {
+  "by": "derived",
+  "src": "/icons/dagger-4.png"
+ },
+ "dagger:5": {
+  "by": "derived",
+  "src": "/icons/dagger-5.png"
+ },
+ "dagger:6": {
+  "by": "derived",
+  "src": "/icons/dagger-6.png"
+ },
+ "dagger:7": {
+  "by": "derived",
+  "src": "/icons/dagger-7.png"
+ },
+ "dagger:8": {
+  "by": "derived",
+  "src": "/icons/dagger-8.png"
+ },
+ "greatsword:1": {
+  "by": "derived",
+  "src": "/icons/greatsword-1.png"
+ },
+ "greatsword:2": {
+  "by": "derived",
+  "src": "/icons/greatsword-2.png"
+ },
+ "greatsword:3": {
+  "by": "derived",
+  "src": "/icons/greatsword-3.png"
+ },
+ "greatsword:4": {
+  "by": "derived",
+  "src": "/icons/greatsword-4.png"
+ },
+ "greatsword:5": {
+  "by": "derived",
+  "src": "/icons/greatsword-5.png"
+ },
+ "greatsword:6": {
+  "by": "derived",
+  "src": "/icons/greatsword-6.png"
+ },
+ "greatsword:7": {
+  "by": "derived",
+  "src": "/icons/greatsword-7.png"
+ },
+ "greatsword:8": {
+  "by": "derived",
+  "src": "/icons/greatsword-8.png"
+ },
+ "pickaxe:1": {
+  "by": "derived",
+  "src": "/icons/pickaxe-1.png"
+ },
+ "arrows:1": {
+  "by": "derived",
+  "src": "/icons/arrows-1.png"
+ },
+ "pickaxe:2": {
+  "by": "derived",
+  "src": "/icons/pickaxe-2.png"
+ },
+ "arrows:2": {
+  "by": "derived",
+  "src": "/icons/arrows-2.png"
+ },
+ "pickaxe:3": {
+  "by": "derived",
+  "src": "/icons/pickaxe-3.png"
+ },
+ "arrows:3": {
+  "by": "derived",
+  "src": "/icons/arrows-3.png"
+ },
+ "pickaxe:4": {
+  "by": "derived",
+  "src": "/icons/pickaxe-4.png"
+ },
+ "arrows:4": {
+  "by": "derived",
+  "src": "/icons/arrows-4.png"
+ },
+ "pickaxe:5": {
+  "by": "derived",
+  "src": "/icons/pickaxe-5.png"
+ },
+ "arrows:5": {
+  "by": "derived",
+  "src": "/icons/arrows-5.png"
+ },
+ "pickaxe:6": {
+  "by": "derived",
+  "src": "/icons/pickaxe-6.png"
+ },
+ "arrows:6": {
+  "by": "derived",
+  "src": "/icons/arrows-6.png"
+ },
+ "pickaxe:7": {
+  "by": "derived",
+  "src": "/icons/pickaxe-7.png"
+ },
+ "arrows:7": {
+  "by": "derived",
+  "src": "/icons/arrows-7.png"
+ },
+ "pickaxe:8": {
+  "by": "derived",
+  "src": "/icons/pickaxe-8.png"
+ },
+ "arrows:8": {
+  "by": "derived",
+  "src": "/icons/arrows-8.png"
+ },
+ "bar:1": {
+  "by": "generated",
+  "src": "/icons/bar-1.png"
+ },
+ "axe:1": {
+  "by": "generated",
+  "src": "/icons/axe-1.png"
+ },
+ "helm:1": {
+  "by": "generated",
+  "src": "/icons/helm-1.png"
+ },
+ "platebody:1": {
+  "by": "generated",
+  "src": "/icons/platebody-1.png"
+ },
+ "platelegs:1": {
+  "by": "generated",
+  "src": "/icons/platelegs-1.png"
+ },
+ "boots:1": {
+  "by": "generated",
+  "src": "/icons/boots-1.png"
+ },
+ "shield:1": {
+  "by": "generated",
+  "src": "/icons/shield-1.png"
+ },
+ "bar:2": {
+  "by": "generated",
+  "src": "/icons/bar-2.png"
+ },
+ "axe:2": {
+  "by": "generated",
+  "src": "/icons/axe-2.png"
+ },
+ "helm:2": {
+  "by": "generated",
+  "src": "/icons/helm-2.png"
+ },
+ "platebody:2": {
+  "by": "generated",
+  "src": "/icons/platebody-2.png"
+ },
+ "platelegs:2": {
+  "by": "generated",
+  "src": "/icons/platelegs-2.png"
+ },
+ "boots:2": {
+  "by": "generated",
+  "src": "/icons/boots-2.png"
+ },
+ "shield:2": {
+  "by": "generated",
+  "src": "/icons/shield-2.png"
+ },
+ "bar:3": {
+  "by": "generated",
+  "src": "/icons/bar-3.png"
+ },
+ "axe:3": {
+  "by": "generated",
+  "src": "/icons/axe-3.png"
+ },
+ "helm:3": {
+  "by": "generated",
+  "src": "/icons/helm-3.png"
+ },
+ "platebody:3": {
+  "by": "generated",
+  "src": "/icons/platebody-3.png"
+ },
+ "platelegs:3": {
+  "by": "generated",
+  "src": "/icons/platelegs-3.png"
+ },
+ "boots:3": {
+  "by": "generated",
+  "src": "/icons/boots-3.png"
+ },
+ "shield:3": {
+  "by": "generated",
+  "src": "/icons/shield-3.png"
+ },
+ "bar:4": {
+  "by": "generated",
+  "src": "/icons/bar-4.png"
+ },
+ "axe:4": {
+  "by": "generated",
+  "src": "/icons/axe-4.png"
+ },
+ "helm:4": {
+  "by": "generated",
+  "src": "/icons/helm-4.png"
+ },
+ "platebody:4": {
+  "by": "generated",
+  "src": "/icons/platebody-4.png"
+ },
+ "platelegs:4": {
+  "by": "generated",
+  "src": "/icons/platelegs-4.png"
+ },
+ "boots:4": {
+  "by": "generated",
+  "src": "/icons/boots-4.png"
+ },
+ "shield:4": {
+  "by": "generated",
+  "src": "/icons/shield-4.png"
+ },
+ "bar:5": {
+  "by": "generated",
+  "src": "/icons/bar-5.png"
+ },
+ "axe:5": {
+  "by": "generated",
+  "src": "/icons/axe-5.png"
+ },
+ "helm:5": {
+  "by": "generated",
+  "src": "/icons/helm-5.png"
+ },
+ "platebody:5": {
+  "by": "generated",
+  "src": "/icons/platebody-5.png"
+ },
+ "platelegs:5": {
+  "by": "generated",
+  "src": "/icons/platelegs-5.png"
+ },
+ "boots:5": {
+  "by": "generated",
+  "src": "/icons/boots-5.png"
+ },
+ "shield:5": {
+  "by": "generated",
+  "src": "/icons/shield-5.png"
+ },
+ "bar:6": {
+  "by": "generated",
+  "src": "/icons/bar-6.png"
+ },
+ "axe:6": {
+  "by": "generated",
+  "src": "/icons/axe-6.png"
+ },
+ "helm:6": {
+  "by": "generated",
+  "src": "/icons/helm-6.png"
+ },
+ "platebody:6": {
+  "by": "generated",
+  "src": "/icons/platebody-6.png"
+ },
+ "platelegs:6": {
+  "by": "generated",
+  "src": "/icons/platelegs-6.png"
+ },
+ "boots:6": {
+  "by": "generated",
+  "src": "/icons/boots-6.png"
+ },
+ "shield:6": {
+  "by": "generated",
+  "src": "/icons/shield-6.png"
+ },
+ "bar:7": {
+  "by": "generated",
+  "src": "/icons/bar-7.png"
+ },
+ "axe:7": {
+  "by": "generated",
+  "src": "/icons/axe-7.png"
+ },
+ "helm:7": {
+  "by": "generated",
+  "src": "/icons/helm-7.png"
+ },
+ "platebody:7": {
+  "by": "generated",
+  "src": "/icons/platebody-7.png"
+ },
+ "platelegs:7": {
+  "by": "generated",
+  "src": "/icons/platelegs-7.png"
+ },
+ "boots:7": {
+  "by": "generated",
+  "src": "/icons/boots-7.png"
+ },
+ "shield:7": {
+  "by": "generated",
+  "src": "/icons/shield-7.png"
+ },
+ "bar:8": {
+  "by": "generated",
+  "src": "/icons/bar-8.png"
+ },
+ "axe:8": {
+  "by": "generated",
+  "src": "/icons/axe-8.png"
+ },
+ "helm:8": {
+  "by": "generated",
+  "src": "/icons/helm-8.png"
+ },
+ "platebody:8": {
+  "by": "generated",
+  "src": "/icons/platebody-8.png"
+ },
+ "platelegs:8": {
+  "by": "generated",
+  "src": "/icons/platelegs-8.png"
+ },
+ "boots:8": {
+  "by": "generated",
+  "src": "/icons/boots-8.png"
+ },
+ "shield:8": {
+  "by": "generated",
+  "src": "/icons/shield-8.png"
+ },
+ "icon:smithing": {
+  "by": "generated",
+  "src": "/icons/icon-smithing.png"
+ },
+ "arrowtips:1": {
+  "by": "generated",
+  "src": "/icons/arrowtips-1.png"
+ },
+ "arrowtips:2": {
+  "by": "generated",
+  "src": "/icons/arrowtips-2.png"
+ },
+ "arrowtips:3": {
+  "by": "generated",
+  "src": "/icons/arrowtips-3.png"
+ },
+ "arrowtips:4": {
+  "by": "generated",
+  "src": "/icons/arrowtips-4.png"
+ },
+ "arrowtips:5": {
+  "by": "generated",
+  "src": "/icons/arrowtips-5.png"
+ },
+ "arrowtips:6": {
+  "by": "generated",
+  "src": "/icons/arrowtips-6.png"
+ },
+ "arrowtips:7": {
+  "by": "generated",
+  "src": "/icons/arrowtips-7.png"
+ },
+ "arrowtips:8": {
+  "by": "generated",
+  "src": "/icons/arrowtips-8.png"
+ },
+ "shafts": {
+  "by": "generated",
+  "src": "/icons/shafts.png"
+ },
+ "ore:1": {
+  "by": "generated",
+  "src": "/icons/ore-1.png"
+ },
+ "ore:tin": {
+  "by": "generated",
+  "src": "/icons/ore-tin.png"
+ },
+ "ore:2": {
+  "by": "generated",
+  "src": "/icons/ore-2.png"
+ },
+ "ore:3": {
+  "by": "generated",
+  "src": "/icons/ore-3.png"
+ },
+ "ore:4": {
+  "by": "generated",
+  "src": "/icons/ore-4.png"
+ },
+ "ore:5": {
+  "by": "generated",
+  "src": "/icons/ore-5.png"
+ },
+ "ore:6": {
+  "by": "generated",
+  "src": "/icons/ore-6.png"
+ },
+ "ore:7": {
+  "by": "generated",
+  "src": "/icons/ore-7.png"
+ },
+ "ore:8": {
+  "by": "generated",
+  "src": "/icons/ore-8.png"
+ },
+ "shortbow:1": {
+  "by": "generated",
+  "src": "/icons/shortbow-1.png"
+ },
+ "longbow:1": {
+  "by": "generated",
+  "src": "/icons/longbow-1.png"
+ },
+ "rod:1": {
+  "by": "generated",
+  "src": "/icons/rod-1.png"
+ },
+ "shortbow:2": {
+  "by": "generated",
+  "src": "/icons/shortbow-2.png"
+ },
+ "longbow:2": {
+  "by": "generated",
+  "src": "/icons/longbow-2.png"
+ },
+ "rod:2": {
+  "by": "generated",
+  "src": "/icons/rod-2.png"
+ },
+ "shortbow:3": {
+  "by": "generated",
+  "src": "/icons/shortbow-3.png"
+ },
+ "longbow:3": {
+  "by": "generated",
+  "src": "/icons/longbow-3.png"
+ },
+ "rod:3": {
+  "by": "generated",
+  "src": "/icons/rod-3.png"
+ },
+ "shortbow:4": {
+  "by": "generated",
+  "src": "/icons/shortbow-4.png"
+ },
+ "longbow:4": {
+  "by": "generated",
+  "src": "/icons/longbow-4.png"
+ },
+ "rod:4": {
+  "by": "generated",
+  "src": "/icons/rod-4.png"
+ },
+ "shortbow:5": {
+  "by": "generated",
+  "src": "/icons/shortbow-5.png"
+ },
+ "longbow:5": {
+  "by": "generated",
+  "src": "/icons/longbow-5.png"
+ },
+ "rod:5": {
+  "by": "generated",
+  "src": "/icons/rod-5.png"
+ },
+ "shortbow:6": {
+  "by": "generated",
+  "src": "/icons/shortbow-6.png"
+ },
+ "longbow:6": {
+  "by": "generated",
+  "src": "/icons/longbow-6.png"
+ },
+ "rod:6": {
+  "by": "generated",
+  "src": "/icons/rod-6.png"
+ },
+ "shortbow:7": {
+  "by": "generated",
+  "src": "/icons/shortbow-7.png"
+ },
+ "longbow:7": {
+  "by": "generated",
+  "src": "/icons/longbow-7.png"
+ },
+ "rod:7": {
+  "by": "generated",
+  "src": "/icons/rod-7.png"
+ },
+ "shortbow:8": {
+  "by": "generated",
+  "src": "/icons/shortbow-8.png"
+ },
+ "longbow:8": {
+  "by": "generated",
+  "src": "/icons/longbow-8.png"
+ },
+ "rod:8": {
+  "by": "generated",
+  "src": "/icons/rod-8.png"
+ },
+ "tree:1": {
+  "by": "generated",
+  "src": "/icons/tree-1.png"
+ },
+ "tree:2": {
+  "by": "generated",
+  "src": "/icons/tree-2.png"
+ },
+ "tree:3": {
+  "by": "generated",
+  "src": "/icons/tree-3.png"
+ },
+ "tree:4": {
+  "by": "generated",
+  "src": "/icons/tree-4.png"
+ },
+ "tree:5": {
+  "by": "generated",
+  "src": "/icons/tree-5.png"
+ },
+ "tree:6": {
+  "by": "generated",
+  "src": "/icons/tree-6.png"
+ },
+ "tree:7": {
+  "by": "generated",
+  "src": "/icons/tree-7.png"
+ },
+ "tree:8": {
+  "by": "generated",
+  "src": "/icons/tree-8.png"
+ },
+ "fish:1": {
+  "by": "generated",
+  "src": "/icons/fish-1.png"
+ },
+ "fish:2": {
+  "by": "generated",
+  "src": "/icons/fish-2.png"
+ },
+ "fish:3": {
+  "by": "generated",
+  "src": "/icons/fish-3.png"
+ },
+ "fish:4": {
+  "by": "generated",
+  "src": "/icons/fish-4.png"
+ },
+ "fish:5": {
+  "by": "generated",
+  "src": "/icons/fish-5.png"
+ },
+ "fish:6": {
+  "by": "generated",
+  "src": "/icons/fish-6.png"
+ },
+ "fish:7": {
+  "by": "generated",
+  "src": "/icons/fish-7.png"
+ },
+ "fish:8": {
+  "by": "generated",
+  "src": "/icons/fish-8.png"
+ },
+ "coin": {
+  "by": "generated",
+  "src": "/icons/coin.png"
+ },
+ "heart": {
+  "by": "generated",
+  "src": "/icons/heart.png"
+ },
+ "monster:chicken": {
+  "by": "generated",
+  "src": "/icons/monster-chicken.png"
+ },
+ "monster:giant_rat": {
+  "by": "generated",
+  "src": "/icons/monster-giant_rat.png"
+ },
+ "monster:goblin": {
+  "by": "generated",
+  "src": "/icons/monster-goblin.png"
+ },
+ "monster:wolf": {
+  "by": "generated",
+  "src": "/icons/monster-wolf.png"
+ },
+ "monster:bandit": {
+  "by": "generated",
+  "src": "/icons/monster-bandit.png"
+ },
+ "monster:giant_spider": {
+  "by": "generated",
+  "src": "/icons/monster-giant_spider.png"
+ },
+ "monster:skeleton": {
+  "by": "generated",
+  "src": "/icons/monster-skeleton.png"
+ },
+ "monster:ghoul": {
+  "by": "generated",
+  "src": "/icons/monster-ghoul.png"
+ },
+ "monster:barrow_knight": {
+  "by": "generated",
+  "src": "/icons/monster-barrow_knight.png"
+ },
+ "monster:mudcrab": {
+  "by": "generated",
+  "src": "/icons/monster-mudcrab.png"
+ },
+ "monster:bog_troll": {
+  "by": "generated",
+  "src": "/icons/monster-bog_troll.png"
+ },
+ "monster:sea_hag": {
+  "by": "generated",
+  "src": "/icons/monster-sea_hag.png"
+ },
+ "monster:frost_wolf": {
+  "by": "generated",
+  "src": "/icons/monster-frost_wolf.png"
+ },
+ "monster:yeti": {
+  "by": "generated",
+  "src": "/icons/monster-yeti.png"
+ },
+ "monster:ice_wraith": {
+  "by": "generated",
+  "src": "/icons/monster-ice_wraith.png"
+ },
+ "monster:magma_crawler": {
+  "by": "generated",
+  "src": "/icons/monster-magma_crawler.png"
+ },
+ "monster:salamander": {
+  "by": "generated",
+  "src": "/icons/monster-salamander.png"
+ },
+ "monster:fire_giant": {
+  "by": "generated",
+  "src": "/icons/monster-fire_giant.png"
+ },
+ "monster:harpy": {
+  "by": "generated",
+  "src": "/icons/monster-harpy.png"
+ },
+ "monster:thunder_roc": {
+  "by": "generated",
+  "src": "/icons/monster-thunder_roc.png"
+ },
+ "monster:storm_giant": {
+  "by": "generated",
+  "src": "/icons/monster-storm_giant.png"
+ },
+ "monster:rotting_treant": {
+  "by": "generated",
+  "src": "/icons/monster-rotting_treant.png"
+ },
+ "monster:wyvern": {
+  "by": "generated",
+  "src": "/icons/monster-wyvern.png"
+ },
+ "monster:elder_wyrm": {
+  "by": "generated",
+  "src": "/icons/monster-elder_wyrm.png"
+ }
+}

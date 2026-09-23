@@ -1,0 +1,48 @@
+{
+  "name": "ironbark",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ironbark: an idle crafting RPG in the Melvor mould, grown from idle-craft.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "sprites": "node art/generator/make.mjs",
+    "balance": "tsx balance/report.ts",
+    "sim": "tsx balance/sim.ts",
+    "check": "npm run lint && npm run typecheck && npm run test"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.6.1",
+    "@ant-design/nextjs-registry": "^1.3.0",
+    "@ant-design/v5-patch-for-react-19": "^1.0.3",
+    "@fontsource/silkscreen": "^5.3.0",
+    "antd": "^5.29.3",
+    "next": "15.5.26",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@playwright/test": "1.56.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "15.5.26",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.1"
+  },
+  "overrides": {
+    "postcss": "^8.5.23"
+  }
+}
