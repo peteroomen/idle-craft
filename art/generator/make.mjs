@@ -397,6 +397,122 @@ fishSprite('fish:5', 'tuna', 'fish'); fishSprite('fish:6', 'marlin', 'sail'); fi
   put('heart', shade(h, { H: { ramp: HEART } }, FIXED), 'generated');
 }
 
+// ---------- Monsters: ten shapes, recoloured per monster ----------
+// Regions: A = skin/fur/shell, B = clothes/second colour, C = legs/third colour; k = eyes.
+function creature(shape) {
+  const g = blank();
+  const leg = (x, y0, y1, w, ch) => { for (let y = y0; y <= y1; y++) for (let dx = 0; dx < w; dx++) g[y][x + dx] = ch; };
+  switch (shape) {
+    case 'humanoid':
+    case 'giant': {
+      const big = shape === 'giant';
+      const [hx, hy, hr] = big ? [16, 6.5, 4.2] : [16, 7, 3.4];
+      const [t0, t1, tw] = big ? [11, 21, 6.5] : [11, 20, 4.5];
+      fill(g, polygon([[16 - tw, t0], [16 + tw, t0], [16 + tw - 1, t1], [16 - tw + 1, t1]]), 'B');
+      fill(g, polygon([[16 - tw - 3.5, t0 + 1], [16 - tw, t0], [16 - tw, t0 + 8], [16 - tw - 2, t0 + 10]]), 'B');
+      fill(g, polygon([[16 + tw + 3.5, t0 + 1], [16 + tw, t0], [16 + tw, t0 + 8], [16 + tw + 2, t0 + 10]]), 'B');
+      fill(g, circle(16 - tw - 2.5, t0 + 11, big ? 1.8 : 1.4), 'A');
+      fill(g, circle(16 + tw + 2.5, t0 + 11, big ? 1.8 : 1.4), 'A');
+      leg(big ? 11 : 12, t1 + 1, 28, big ? 4 : 3, 'C');
+      leg(big ? 17 : 17, t1 + 1, 28, big ? 4 : 3, 'C');
+      fill(g, circle(hx, hy, hr), 'A');
+      set(g, [[Math.round(hx - 1.5), Math.round(hy)], [Math.round(hx + 1), Math.round(hy)]], 'k');
+      break;
+    }
+    case 'beast': {
+      fill(g, ellipse(17, 17, 9, 5), 'A');
+      fill(g, circle(8, 13, 4.2), 'A');
+      fill(g, polygon([[1.5, 15], [6, 12.5], [6, 17]]), 'A');
+      fill(g, polygon([[6, 10], [8, 5], [10, 10]]), 'A');
+      fill(g, polygon([[25, 14], [31, 10], [30, 13], [26, 17]]), 'A');
+      leg(10, 20, 27, 2, 'C'); leg(14, 21, 27, 2, 'C'); leg(20, 21, 27, 2, 'C'); leg(24, 20, 27, 2, 'C');
+      fill(g, ellipse(17, 19, 7, 2.2), 'B');
+      set(g, [[7, 12]], 'k');
+      break;
+    }
+    case 'rat': {
+      for (let i = 0; i <= 12; i++) set(g, [[18 + i, Math.round(24 - 3 * Math.sin(i / 3))]], 'C');
+      fill(g, ellipse(15, 21, 8, 4.5), 'A');
+      fill(g, circle(7, 19, 3.6), 'A');
+      fill(g, polygon([[1.5, 21], [5, 18], [5, 22.5]]), 'A');
+      fill(g, circle(8, 15.5, 1.8), 'B');
+      leg(9, 24, 27, 2, 'C'); leg(19, 24, 27, 2, 'C');
+      set(g, [[6, 18]], 'k');
+      break;
+    }
+    case 'bird': {
+      fill(g, ellipse(17, 18, 8, 7), 'A');
+      fill(g, circle(10, 10, 4.2), 'A');
+      fill(g, polygon([[3, 11], [7, 9.5], [7, 12.5]]), 'C');
+      fill(g, polygon([[8, 5], [10, 3], [11, 6], [13, 4.5], [12.5, 8], [8.5, 8]]), 'B');
+      fill(g, polygon([[24, 13], [30, 8], [29, 16], [25, 19]]), 'A');
+      fill(g, ellipse(18, 18, 5, 3.5), 'B');
+      leg(14, 25, 29, 1, 'C'); leg(19, 25, 29, 1, 'C');
+      set(g, [[9, 9]], 'k');
+      break;
+    }
+    case 'spider': {
+      for (const [x0, y0, x1, y1, x2, y2] of [[12, 16, 5, 10, 2, 17], [12, 18, 4, 16, 2, 24], [13, 20, 6, 22, 4, 29], [15, 21, 10, 25, 9, 30], [20, 16, 27, 10, 30, 17], [20, 18, 28, 16, 30, 24], [19, 20, 26, 22, 28, 29], [17, 21, 22, 25, 23, 30]]) {
+        line(g, x0, y0, x1, y1, 'C'); line(g, x1, y1, x2, y2, 'C');
+      }
+      fill(g, ellipse(16, 21, 7, 5.5), 'A');
+      fill(g, circle(16, 13, 4.2), 'B');
+      set(g, [[14, 12], [18, 12], [15, 14], [17, 14]], 'k');
+      break;
+    }
+    case 'flyer': {
+      fill(g, polygon([[15, 14], [1, 4], [4, 12], [2, 16], [9, 19], [15, 19]]), 'B');
+      fill(g, polygon([[17, 14], [31, 4], [28, 12], [30, 16], [23, 19], [17, 19]]), 'B');
+      fill(g, ellipse(16, 18, 4.5, 7), 'A');
+      fill(g, circle(16, 9, 3.6), 'A');
+      fill(g, polygon([[14.5, 11], [17.5, 11], [16, 15]]), 'C');
+      fill(g, polygon([[13, 24], [19, 24], [21, 30], [16, 27], [11, 30]]), 'B');
+      set(g, [[14, 9], [18, 9]], 'k');
+      break;
+    }
+    case 'wyrm': {
+      fill(g, polygon([[18, 14], [30, 2], [29, 12], [31, 17], [22, 19]]), 'B');
+      for (let i = 0; i <= 40; i++) { const t = i / 40; fill(g, circle(24 - 16 * t + 3 * Math.sin(t * 6), 27 - 18 * t, 4.2 - 1.6 * t), 'A'); }
+      fill(g, polygon([[3, 8], [9, 4], [13, 7], [12, 11], [5, 11]]), 'A');
+      fill(g, polygon([[9, 4], [11, 0.5], [12, 5]]), 'C');
+      fill(g, polygon([[5, 11], [9, 11], [7, 13]]), 'C');
+      for (let i = 0; i < 6; i++) set(g, [[Math.round(22 - 2.6 * i), Math.round(24 - 3 * i)]], 'C');
+      set(g, [[8, 7]], 'k');
+      break;
+    }
+    case 'wraith': {
+      fill(g, polygon([[8, 14], [16, 3], [24, 14], [25, 26], [22, 23], [19, 28], [16, 24], [13, 28], [10, 23], [7, 26]]), 'A');
+      fill(g, circle(16, 11, 5.5), 'B');
+      fill(g, polygon([[8, 16], [2, 22], [7, 20]]), 'A'); fill(g, polygon([[24, 16], [30, 22], [25, 20]]), 'A');
+      set(g, [[14, 11], [18, 11], [14, 12], [18, 12]], 'k');
+      break;
+    }
+    case 'treant': {
+      leg(12, 22, 29, 3, 'C'); leg(18, 22, 29, 3, 'C');
+      fill(g, polygon([[11, 12], [21, 12], [20, 23], [12, 23]]), 'C');
+      fill(g, polygon([[11, 13], [3, 8], [5, 14], [10, 17]]), 'C');
+      fill(g, polygon([[21, 13], [29, 8], [27, 14], [22, 17]]), 'C');
+      [[16, 7, 6], [10, 8, 4], [22, 8, 4]].forEach(([x, y, r]) => fill(g, circle(x, y, r), 'A'));
+      set(g, [[14, 16], [18, 16]], 'k'); set(g, [[15, 19], [16, 19], [17, 19]], 'k');
+      break;
+    }
+  }
+  return g;
+}
+const MONSTERS = {
+  chicken: ['bird', '#ece4d8', '#d95763', '#e8b830'], giant_rat: ['rat', '#8a7a6a', '#d9a0a0', '#b8908a'], goblin: ['humanoid', '#6abe30', '#8f563b', '#4a3a2a'],
+  wolf: ['beast', '#7a7a80', '#a8a8b0', '#5a5a60'], bandit: ['humanoid', '#d9a066', '#ac3232', '#3a3040'], giant_spider: ['spider', '#3a3040', '#5a4a6a', '#2a2030'],
+  skeleton: ['humanoid', '#e8e0cc', '#d8d0bc', '#c8c0ac'], ghoul: ['humanoid', '#8fa888', '#4b5a48', '#3f4a3c'], barrow_knight: ['humanoid', '#829199', '#6c7980', '#4a5560'],
+  mudcrab: ['spider', '#9a6a4a', '#b37d47', '#7a4a2a'], bog_troll: ['giant', '#7a8a4a', '#4b5a2f', '#5a4a2a'], sea_hag: ['wraith', '#5a9a8a', '#3a6a60', '#2a4a44'],
+  frost_wolf: ['beast', '#cbdbfc', '#ffffff', '#9badb7'], yeti: ['giant', '#eef2f8', '#cbdbfc', '#b8c8e0'], ice_wraith: ['wraith', '#9fd8f0', '#e0f6ff', '#5fcde4'],
+  magma_crawler: ['spider', '#df7126', '#fbf236', '#ac3232'], salamander: ['rat', '#e1491f', '#fa9e5d', '#ac3232'], fire_giant: ['giant', '#d9573a', '#6a2a1a', '#4a2a1a'],
+  harpy: ['flyer', '#c8a078', '#8a5a3a', '#e8b830'], thunder_roc: ['flyer', '#e8d060', '#5b6ee1', '#fbf236'], storm_giant: ['giant', '#6a8ae0', '#3f3f74', '#2a2a54'],
+  rotting_treant: ['treant', '#5a6a3a', '#7a5a3a', '#5a3a2a'], wyvern: ['flyer', '#4f8a52', '#2e5e38', '#c8e070'], elder_wyrm: ['wyrm', '#8e6bb3', '#461980', '#fbf293'],
+};
+for (const [id, [shape, a, b, c]] of Object.entries(MONSTERS)) {
+  put(`monster:${id}`, shade(creature(shape), { A: { ramp: rampFrom(a) }, B: { ramp: rampFrom(b) }, C: { ramp: rampFrom(c) } }, { k: '#140c1c' }), 'generated');
+}
+
 // ---------- hand-drawn overrides always win ----------
 // Drop art/hand-drawn/overrides/<id>.png (id with ':' written as '-', e.g. helm-5.png) to replace a generated sprite.
 if (existsSync(OVERRIDES)) {

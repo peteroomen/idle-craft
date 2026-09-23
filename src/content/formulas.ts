@@ -79,6 +79,10 @@ export const HITPOINTS_XP_SHARE = 1 / 3;
 export const RESPAWN_MS = 2000;
 export const UNARMED = { speed: 2400, damage: 0.8 } as const;
 
+/** Displayed combat level, RuneScape-style: 3 at the start, ~114 with everything at 99. */
+export const combatLevel = (att: number, str: number, def: number, rng: number, hp: number) =>
+  Math.floor(0.25 * (def + hp) + 0.325 * Math.max(att + str, Math.floor(1.5 * rng)));
+
 export const rating = (level: number, bonusPct: number) => (level + 10) * (1 + bonusPct / 100);
 export const maxHit = (level: number, bonusPct: number, damageMult = 1) => Math.max(1, Math.round(2 * (level + 10) * (1 + bonusPct / 100) * damageMult));
 export const hitChance = (attack: number, defense: number) => Math.min(0.95, Math.max(0.05, attack / (attack + defense)));

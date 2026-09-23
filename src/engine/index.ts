@@ -7,3 +7,4 @@ export * from './commands';
 export * from './save';
 export * from './xp';
 export * from './equipment';
+export * from './combat';

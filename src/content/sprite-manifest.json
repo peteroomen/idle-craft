@@ -674,5 +674,101 @@
  "heart": {
   "by": "generated",
   "src": "/icons/heart.png"
+ },
+ "monster:chicken": {
+  "by": "generated",
+  "src": "/icons/monster-chicken.png"
+ },
+ "monster:giant_rat": {
+  "by": "generated",
+  "src": "/icons/monster-giant_rat.png"
+ },
+ "monster:goblin": {
+  "by": "generated",
+  "src": "/icons/monster-goblin.png"
+ },
+ "monster:wolf": {
+  "by": "generated",
+  "src": "/icons/monster-wolf.png"
+ },
+ "monster:bandit": {
+  "by": "generated",
+  "src": "/icons/monster-bandit.png"
+ },
+ "monster:giant_spider": {
+  "by": "generated",
+  "src": "/icons/monster-giant_spider.png"
+ },
+ "monster:skeleton": {
+  "by": "generated",
+  "src": "/icons/monster-skeleton.png"
+ },
+ "monster:ghoul": {
+  "by": "generated",
+  "src": "/icons/monster-ghoul.png"
+ },
+ "monster:barrow_knight": {
+  "by": "generated",
+  "src": "/icons/monster-barrow_knight.png"
+ },
+ "monster:mudcrab": {
+  "by": "generated",
+  "src": "/icons/monster-mudcrab.png"
+ },
+ "monster:bog_troll": {
+  "by": "generated",
+  "src": "/icons/monster-bog_troll.png"
+ },
+ "monster:sea_hag": {
+  "by": "generated",
+  "src": "/icons/monster-sea_hag.png"
+ },
+ "monster:frost_wolf": {
+  "by": "generated",
+  "src": "/icons/monster-frost_wolf.png"
+ },
+ "monster:yeti": {
+  "by": "generated",
+  "src": "/icons/monster-yeti.png"
+ },
+ "monster:ice_wraith": {
+  "by": "generated",
+  "src": "/icons/monster-ice_wraith.png"
+ },
+ "monster:magma_crawler": {
+  "by": "generated",
+  "src": "/icons/monster-magma_crawler.png"
+ },
+ "monster:salamander": {
+  "by": "generated",
+  "src": "/icons/monster-salamander.png"
+ },
+ "monster:fire_giant": {
+  "by": "generated",
+  "src": "/icons/monster-fire_giant.png"
+ },
+ "monster:harpy": {
+  "by": "generated",
+  "src": "/icons/monster-harpy.png"
+ },
+ "monster:thunder_roc": {
+  "by": "generated",
+  "src": "/icons/monster-thunder_roc.png"
+ },
+ "monster:storm_giant": {
+  "by": "generated",
+  "src": "/icons/monster-storm_giant.png"
+ },
+ "monster:rotting_treant": {
+  "by": "generated",
+  "src": "/icons/monster-rotting_treant.png"
+ },
+ "monster:wyvern": {
+  "by": "generated",
+  "src": "/icons/monster-wyvern.png"
+ },
+ "monster:elder_wyrm": {
+  "by": "generated",
+  "src": "/icons/monster-elder_wyrm.png"
  }
 }

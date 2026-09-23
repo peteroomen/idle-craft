@@ -2,6 +2,7 @@
 
 import { Modal, Typography } from 'antd';
 import { ITEMS } from '@/content/items';
+import { MONSTERS } from '@/content/monsters';
 import { SKILL_BY_ID } from '@/content/skills';
 import type { SkillId } from '@/content/types';
 import { fmt, span } from '@/lib/format';
@@ -47,6 +48,12 @@ export default function AwayModal() {
               </div>
             );
           })}
+          {Object.entries(summary.kills).map(([id, n]) => (
+            <div key={id} className="flex flex-row items-center gap-2"><Icon imgPath={MONSTERS[id].icon} alt="" /><span><b>{fmt(n)}</b> {MONSTERS[id].name} defeated</span></div>
+          ))}
+          {Object.entries(summary.eaten).map(([id, n]) => (
+            <div key={id} className="flex flex-row items-center gap-2 opacity-70"><Icon imgPath={ITEMS[id].icon} alt="" /><span>Ate {fmt(n)} {ITEMS[id].name}</span></div>
+          ))}
           {summary.defeats > 0 && <Typography.Text type="danger">Defeated {summary.defeats}×</Typography.Text>}
           {summary.stop && <Typography.Text type="warning">Stopped: {summary.stop}</Typography.Text>}
         </div>

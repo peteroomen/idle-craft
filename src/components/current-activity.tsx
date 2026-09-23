@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Progress } from 'antd';
 import { ACTIVITIES } from '@/content/activities';
+import { MONSTERS } from '@/content/monsters';
 import { SKILL_BY_ID } from '@/content/skills';
 import { actionDuration } from '@/engine';
 import { gerund } from '@/lib/format';
@@ -19,7 +20,8 @@ export default function CurrentActivity({ compact = false }: { compact?: boolean
       const def = ACTIVITIES[a.id];
       return { href: `/skills/${SKILL_BY_ID[def.skill].routeName}/`, icon: def.icon, text: `${gerund(def.action)} ${def.name.toLowerCase()}`, pct: Math.round((a.progress / actionDuration(g, def)) * 100) };
     }
-    return { href: '/combat/encounters/', icon: '/icons/sword-3.png', text: 'Fighting', pct: 0 };
+    const m = MONSTERS[a.monsterId];
+    return { href: '/combat/encounters/', icon: m.icon, text: `Fighting ${m.name.toLowerCase()}`, pct: a.respawn > 0 ? 100 : Math.round((1 - a.monsterHp / m.hp) * 100) };
   }));
 
   if (!info) return compact ? null : <span className="opacity-60">Idle</span>;

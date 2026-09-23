@@ -13,10 +13,12 @@ export function advance(s: GameState, ms: number, emit: Emit) {
   let guard = 0;
   while (left > 0) {
     const before = s.action;
+    // Never step past a regen tick, so healing happens at the same moment however time is chunked.
+    const budget = Math.min(left, REGEN_INTERVAL_MS - s.regenTimer);
     let used: number;
-    if (!before) used = left;
-    else if (before.type === 'activity') used = stepActivity(s, left, emit);
-    else used = stepCombat(s, left, emit);
+    if (!before) used = budget;
+    else if (before.type === 'activity') used = stepActivity(s, budget, emit);
+    else used = stepCombat(s, budget, emit);
     if (used > 0) {
       regen(s, used);
       s.now += used;
@@ -29,14 +31,14 @@ export function advance(s: GameState, ms: number, emit: Emit) {
   }
 }
 
+/** A steady clock: every 10 s of game time heals 1% of max HP. */
 export function regen(s: GameState, ms: number) {
-  const max = maxHp(s);
-  if (s.hp >= max) { s.hp = max; s.regenTimer = 0; return; }
   s.regenTimer += ms;
-  const ticks = Math.floor(s.regenTimer / REGEN_INTERVAL_MS);
-  if (!ticks) return;
-  s.regenTimer -= ticks * REGEN_INTERVAL_MS;
-  s.hp = Math.min(max, s.hp + ticks * Math.max(1, Math.round(max * REGEN_FRACTION)));
+  while (s.regenTimer >= REGEN_INTERVAL_MS) {
+    s.regenTimer -= REGEN_INTERVAL_MS;
+    const max = maxHp(s);
+    s.hp = Math.min(max, s.hp + Math.max(1, Math.round(max * REGEN_FRACTION)));
+  }
 }
 
 /**
