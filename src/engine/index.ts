@@ -6,3 +6,4 @@ export * from './advance';
 export * from './commands';
 export * from './save';
 export * from './xp';
+export * from './equipment';

@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { App, Badge, Button, Descriptions, Empty, InputNumber, Segmented, Tag, theme, Typography } from 'antd';
 import { ITEMS, type Item, type ItemCategory } from '@/content/items';
 import { SKILL_BY_ID } from '@/content/skills';
-import { sell } from '@/engine';
+import { cannotEquip, equip, sell } from '@/engine';
 import { compact, fmt } from '@/lib/format';
 import { useGame } from '@/store/game';
 import { useInventory, useSlots } from '@/store/hooks';
@@ -68,6 +68,13 @@ function ItemPanel({ item, qty }: { item: Item; qty: number }) {
   const [n, setN] = useState<number | null>(1);
   const { token: { colorBgContainer, borderRadiusLG } } = theme.useToken();
 
+  const why = useGame((s) => (s.game && item.equip ? cannotEquip(s.game, item.id) : null));
+  const doEquip = () => {
+    const err = run(equip, item.id);
+    if (err) message.warning(err);
+    else message.success(`Equipped ${item.name}`);
+  };
+
   const doSell = (count: number) => {
     const err = run(sell, item.id, count);
     if (err) message.warning(err);
@@ -89,6 +96,9 @@ function ItemPanel({ item, qty }: { item: Item; qty: number }) {
         ...(item.tool ? [{ key: 't', label: 'Tool', children: `${Math.round((1 - item.tool.speed) * 100)}% faster ${SKILL_BY_ID[item.tool.skill].name} · needs level ${item.tool.level}` }] : []),
         ...(item.equip ? [{ key: 'e', label: 'Equip', children: `${item.equip.slot} · needs ${SKILL_BY_ID[item.equip.skill].name} ${item.equip.level}` }] : []),
       ]} />
+      {item.equip && (
+        <Button type="primary" disabled={!!why} onClick={doEquip}>{why ?? 'Equip'}</Button>
+      )}
       <div className="flex flex-row gap-2">
         <InputNumber min={1} max={qty} value={n} onChange={setN} style={{ width: 110 }} aria-label="Quantity" />
         <Button onClick={() => doSell(Math.min(n ?? 1, qty))}>Sell</Button>

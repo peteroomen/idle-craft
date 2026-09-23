@@ -30,6 +30,7 @@ export default function Activity({ activity }: { activity: IActivity }) {
   }));
   const have = view.have ? view.have.split(',').map(Number) : [];
   const locked = level < activity.level;
+  const short = (activity.inputs ?? []).some((i, n) => (have[n] ?? 0) < i.qty);
 
   const start = () => {
     const err = run(startActivity, activity.id);
@@ -71,7 +72,7 @@ export default function Activity({ activity }: { activity: IActivity }) {
         ) : locked ? (
           <Tag>Locked</Tag>
         ) : (
-          <Button type="primary" onClick={start}>Start</Button>
+          <Button type="primary" disabled={short} onClick={start}>Start</Button>
         )}
       </div>
     </div>
